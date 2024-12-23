@@ -72,9 +72,9 @@ const TaskTable = () => {
                   className="px-4 py-2 border rounded-lg text-gray-800"
                 >
                   <option value="">Assigned By</option>
-                  <option value="John Doe">John Doe</option>
-                  <option value="Alice Smith">Alice Smith</option>
-                  <option value="Bob Johnson">Bob Johnson</option>
+                  <option value="Kiruba">Kiruba</option>
+                  <option value="siva">siva</option>
+                  <option value="Logesh">Logesh</option>
                 </select>
               </td>
               <td className="px-6 py-3">
@@ -84,9 +84,9 @@ const TaskTable = () => {
                   className="px-4 py-2 border rounded-lg text-gray-800"
                 >
                   <option value="">Assigned To</option>
-                  <option value="Charlie Brown">Charlie Brown</option>
-                  <option value="David Lee">David Lee</option>
-                  <option value="Ella Green">Ella Green</option>
+                  <option value="Prassana">Prassana</option>
+                  <option value="Kumaran">Kumaran</option>
+                  <option value="Logesh">Logesh</option>
                 </select>
               </td>
               <td className="px-6 py-3">
@@ -128,9 +128,9 @@ const TaskTable = () => {
           className="px-4 py-2 border rounded-lg mr-4"
         >
           <option value="">Assigned By</option>
-          <option value="John Doe">John Doe</option>
-          <option value="Alice Smith">Alice Smith</option>
-          <option value="Bob Johnson">Bob Johnson</option>
+          <option value="Kiruba">Kiruba</option>
+          <option value="siva">siva</option>
+          <option value="Logesh">Logesh</option>
         </select>
         <select
           value={newTask.assignedTo}
@@ -138,9 +138,9 @@ const TaskTable = () => {
           className="px-4 py-2 border rounded-lg mr-4"
         >
           <option value="">Assigned To</option>
-          <option value="Charlie Brown">Charlie Brown</option>
-          <option value="David Lee">David Lee</option>
-          <option value="Ella Green">Ella Green</option>
+          <option value="Prassana">Prassana</option>
+          <option value="Kumaran">Kumaran</option>
+          <option value="Logesh">Logesh</option>
         </select>
       </div>
     </div>
