@@ -1,32 +1,35 @@
-// components/TaskTable.js
 'use client';
 import React, { useState } from 'react';
 
-const TaskTable = ({ tasks }) => {
-  const [assignedTo, setAssignedTo] = useState('');
-  const [assignedBy, setAssignedBy] = useState('');
-
-  const handleAssignToChange = (e) => {
-    setAssignedTo(e.target.value);
-  };
-
-  const handleAssignByChange = (e) => {
-    setAssignedBy(e.target.value);
-  };
+const TaskTable = () => {
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState({ task: '', assignedBy: '', assignedTo: '', status: '' });
 
   const handleAddTask = () => {
-    // Logic for adding a new task (could open a modal or redirect to a form)
-    alert('Add task functionality coming soon!');
-  };
-
-  const handleEditTask = (id) => {
-    // Logic for editing a task
-    alert(`Editing task with ID: ${id}`);
+    setTasks([
+      ...tasks,
+      { id: Date.now(), task: newTask.task, assignedBy: newTask.assignedBy, assignedTo: newTask.assignedTo, status: 'Pending' },
+    ]);
+    setNewTask({ task: '', assignedBy: '', assignedTo: '', status: '' });
   };
 
   const handleDeleteTask = (id) => {
-    // Logic for deleting a task
-    alert(`Deleting task with ID: ${id}`);
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const handleInputChange = (e, field) => {
+    setNewTask({
+      ...newTask,
+      [field]: e.target.value,
+    });
+  };
+
+  const handleChange = (e, id, field) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, [field]: e.target.value } : task
+      )
+    );
   };
 
   return (
@@ -38,28 +41,6 @@ const TaskTable = ({ tasks }) => {
         >
           Add Task
         </button>
-        <div className="flex space-x-4">
-          <select
-            value={assignedBy}
-            onChange={handleAssignByChange}
-            className="px-4 py-2 border rounded-lg text-gray-800"
-          >
-            <option value="">Assigned By</option>
-            <option value="John Doe">John Doe</option>
-            <option value="Alice Smith">Alice Smith</option>
-            <option value="Bob Johnson">Bob Johnson</option>
-          </select>
-          <select
-            value={assignedTo}
-            onChange={handleAssignToChange}
-            className="px-4 py-2 border rounded-lg text-gray-800"
-          >
-            <option value="">Assigned To</option>
-            <option value="Charlie Brown">Charlie Brown</option>
-            <option value="David Lee">David Lee</option>
-            <option value="Ella Green">Ella Green</option>
-          </select>
-        </div>
       </div>
       <table className="task-table min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
         <thead className="bg-gray-800 text-white">
@@ -76,9 +57,38 @@ const TaskTable = ({ tasks }) => {
           {tasks.map((task, index) => (
             <tr key={task.id} className="border-b hover:bg-gray-100 transition-all">
               <td className="px-6 py-3">{index + 1}</td>
-              <td className="px-6 py-3">{task.task}</td>
-              <td className="px-6 py-3">{task.assignedBy}</td>
-              <td className="px-6 py-3">{task.assignedTo}</td>
+              <td className="px-6 py-3">
+                <input
+                  type="text"
+                  value={task.task}
+                  onChange={(e) => handleChange(e, task.id, 'task')}
+                  className="border rounded px-2 py-1 w-full"
+                />
+              </td>
+              <td className="px-6 py-3">
+                <select
+                  value={task.assignedBy}
+                  onChange={(e) => handleChange(e, task.id, 'assignedBy')}
+                  className="px-4 py-2 border rounded-lg text-gray-800"
+                >
+                  <option value="">Assigned By</option>
+                  <option value="John Doe">John Doe</option>
+                  <option value="Alice Smith">Alice Smith</option>
+                  <option value="Bob Johnson">Bob Johnson</option>
+                </select>
+              </td>
+              <td className="px-6 py-3">
+                <select
+                  value={task.assignedTo}
+                  onChange={(e) => handleChange(e, task.id, 'assignedTo')}
+                  className="px-4 py-2 border rounded-lg text-gray-800"
+                >
+                  <option value="">Assigned To</option>
+                  <option value="Charlie Brown">Charlie Brown</option>
+                  <option value="David Lee">David Lee</option>
+                  <option value="Ella Green">Ella Green</option>
+                </select>
+              </td>
               <td className="px-6 py-3">
                 <span
                   className={`px-3 py-1 text-xs rounded-full ${
@@ -94,12 +104,6 @@ const TaskTable = ({ tasks }) => {
               </td>
               <td className="px-6 py-3 flex space-x-3">
                 <button
-                  onClick={() => handleEditTask(task.id)}
-                  className="text-blue-600 hover:text-blue-800 transition-all"
-                >
-                  Edit
-                </button>
-                <button
                   onClick={() => handleDeleteTask(task.id)}
                   className="text-red-600 hover:text-red-800 transition-all"
                 >
@@ -110,6 +114,35 @@ const TaskTable = ({ tasks }) => {
           ))}
         </tbody>
       </table>
+      <div className="mt-5">
+        <input
+          type="text"
+          placeholder="New Task"
+          value={newTask.task}
+          onChange={(e) => handleInputChange(e, 'task')}
+          className="px-4 py-2 border rounded-lg mr-4"
+        />
+        <select
+          value={newTask.assignedBy}
+          onChange={(e) => handleInputChange(e, 'assignedBy')}
+          className="px-4 py-2 border rounded-lg mr-4"
+        >
+          <option value="">Assigned By</option>
+          <option value="John Doe">John Doe</option>
+          <option value="Alice Smith">Alice Smith</option>
+          <option value="Bob Johnson">Bob Johnson</option>
+        </select>
+        <select
+          value={newTask.assignedTo}
+          onChange={(e) => handleInputChange(e, 'assignedTo')}
+          className="px-4 py-2 border rounded-lg mr-4"
+        >
+          <option value="">Assigned To</option>
+          <option value="Charlie Brown">Charlie Brown</option>
+          <option value="David Lee">David Lee</option>
+          <option value="Ella Green">Ella Green</option>
+        </select>
+      </div>
     </div>
   );
 };
