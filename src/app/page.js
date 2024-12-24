@@ -1,6 +1,10 @@
 // pages/index.js
+'use client'
 import TaskTable from './components/TaskTable';
 import './globals.css'
+import { getUsers } from '../../utilis/users';
+import { useEffect } from 'react';
+import AuthPage from './auth';
 export default function Home() {
   const tasks = [
     {
@@ -26,10 +30,15 @@ export default function Home() {
     },
   ];
 
+  useEffect(() => {
+    getUsers();
+  }, []);
+
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold text-center text-red-600 ">Task Manager</h1>
       <TaskTable tasks={tasks} />
+      <AuthPage/>
     </div>
   );
 }
