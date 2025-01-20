@@ -17,4 +17,4 @@
 //   const db = getFirestore(firebaseApp);
   
 //   export { db };
-//   export const auth = getAuth(firebaseApp);
+//   export const auth = getAuth(firebaseApp); 

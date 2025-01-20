@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "A Chrome extension built with the Next.js App Router",
   "action": {
-    "default_popup": "popup/index.html",  
+    "default_popup": "index.html",  
     "default_icon": {
       "16": "icons/icon16.png",  
       "48": "icons/icon48.png",

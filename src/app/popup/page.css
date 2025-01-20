@@ -1,0 +1,113 @@
+.task-table {
+    min-width: 100%;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e5e7eb;
+    border-radius: 0.5rem; /* 8px */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  }
+/* Container and Overflow */
+.overflow-x-auto {
+    overflow-x: auto;
+    margin-top: 1.25rem; /* 5px */
+  }
+  
+  /* Flex and Spacing */
+  .flex {
+    display: flex;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  .mt-5 {
+    margin-top: 1.25rem;
+  }
+  
+  /* Button Styles */
+  .btn-add-task {
+    padding: 0.5rem 1rem;
+    background-color: #2563eb; /* blue-600 */
+    color: white;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+  }
+  .btn-add-task:hover {
+    background-color: #1e40af; /* blue-700 */
+  }
+  
+  /* Table Styles */
+  .task-table {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #e5e7eb; /* gray-200 */
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  }
+  
+  .table-header {
+    background-color: #1f2937; /* gray-800 */
+    color: white;
+  }
+  
+  .th, .td {
+    padding: 0.75rem;
+    text-align: left;
+  }
+  .border-b {
+    border-bottom: 1px solid #e5e7eb; /* gray-200 */
+  }
+  .row-hover:hover {
+    background-color: #f3f4f6; /* gray-100 */
+    transition: background-color 0.3s;
+  }
+  
+  /* Input Styles */
+  .input-task {
+    border: 1px solid #e5e7eb; /* gray-200 */
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+  }
+  
+  /* Select Styles */
+  .select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    color: #1f2937; /* gray-800 */
+  }
+  
+  /* Status Styles */
+  .status-completed {
+    background-color: #d1fae5; /* green-200 */
+    color: #065f46; /* green-800 */
+  }
+  .status-in-progress {
+    background-color: #fef3c7; /* yellow-200 */
+    color: #92400e; /* yellow-800 */
+  }
+  .status-pending {
+    background-color: #fee2e2; /* red-200 */
+    color: #991b1b; /* red-800 */
+  }
+  .status-badge {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 9999px;
+  }
+  
+  /* Delete Button */
+  .btn-delete {
+    color: #dc2626; /* red-600 */
+    transition: color 0.3s;
+  }
+  .btn-delete:hover {
+    color: #b91c1c; /* red-800 */
+  }
+    
